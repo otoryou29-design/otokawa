@@ -122,6 +122,6 @@ export const INITIAL_WEEKLY = [
 
 export const AREAS = ["å¨ã¨ãªã¢","é¡å±±","é è³å·","ç¢å¹","ç½æ²³","ä¼æ´¥","ããã"]
 export const CATS  = ["èç©","æè","è¬å³","ã«ãã","ãã®ã","æ ¹è","åãã®","æç©"]
-export const CAT   = {èç©:{bg:"#dcfce7",tx:"#166534",bd:"#86efac"},æè:{bg:"#fee2e2",tx:"#991b1b",bd:"#fca5a5"},è¬å³:{bg:"#fef9c3",tx:"#854d0e",bd:"#fde047"},ã«ãã:{bg:"#dbeafe",tx:"#1e40af",bd:"#93c5fd"},ãã®ã:{bg:"#ede9fe",tx:"#5b21b6",bd:"#c4b5fd"},æ ¹è:{bg:"#ffedd5",tx:"#9a3412",bd:"#fdba74"},åãã®:{bg:"#f5f0e8",tx:"#78350f",bd:"#d6b97a"},æç©:{bg:"#fce7f3",tx:"#9d174d",bd:"#f9a8d4"}}
+export const CAT   = {"èç©":{bg:"#dcfce7",tx:"#166534",bd:"#86efac"},"æè":{bg:"#fee2e2",tx:"#991b1b",bd:"#fca5a5"},"è¬å³":{bg:"#fef9c3",tx:"#854d0e",bd:"#fde047"},"ã«ãã":{bg:"#dbeafe",tx:"#1e40af",bd:"#93c5fd"},"ãã®ã":{bg:"#ede9fe",tx:"#5b21b6",bd:"#c4b5fd"},"æ ¹è":{bg:"#ffedd5",tx:"#9a3412",bd:"#fdba74"},"åãã®":{bg:"#f5f0e8",tx:"#78350f",bd:"#d6b97a"},"æç©":{bg:"#fce7f3",tx:"#9d174d",bd:"#f9a8d4"}}
 export const RANK  = {A:{bg:"#fef9c3",tx:"#92400e"},B:{bg:"#dbeafe",tx:"#1e40af"},C:{bg:"#dcfce7",tx:"#166534"},D:{bg:"#fee2e2",tx:"#991b1b"}}
 
