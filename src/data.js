@@ -1,127 +1,135 @@
 export const DISCOUNT_DAYS = {
-  "レタスL":{days:6},"フリルレタス":{days:6},"水菜":{days:5},"小松菜":{days:5},
-  "ほうれん草":{days:4},"青梗菜":{days:5},"ブロッコリー":{days:5},"長ねぎ 2P":{days:7},
-  "にら":{days:4},"ミニトマト 120g":{days:7},"トマトスタンド 400g":{days:5},
-  "きゅうり 2P":{days:4},"ピーマン M3P":{days:7},"なす袋 5P":{days:5},
-  "しいたけ A":{days:4},"株取りなめこ":{days:3},"えのき":{days:5},
-  "ぶなしめじ":{days:5},"まいたけ":{days:4},"大根一本":{days:10},
-  "ごぼう":{days:14},"長いもパック":{days:10},
+  "ã¬ã¿ã¹L":{days:6},"ããªã«ã¬ã¿ã¹":{days:6},"æ°´è":{days:5},"å°æ¾è":{days:5},
+  "ã»ãããè":{days:4},"éæ¢è":{days:5},"ãã­ãã³ãªã¼":{days:5},"é·ã­ã 2P":{days:7},
+  "ã«ã":{days:4},"ããããã 120g":{days:7},"ãããã¹ã¿ã³ã 400g":{days:5},
+  "ãããã 2P":{days:4},"ãã¼ãã³ M3P":{days:7},"ãªãè¢ 5P":{days:5},
+  "ãããã A":{days:4},"æ ªåããªãã":{days:3},"ãã®ã":{days:5},
+  "ã¶ãªããã":{days:5},"ã¾ããã":{days:4},"å¤§æ ¹ä¸æ¬":{days:10},
+  "ãã¼ã":{days:14},"é·ããããã¯":{days:10},
 }
 
+// å¬äºã³ã³ããç®å®ï¼ã©ã³ã¯å¥ï¼
+export const EVENT_CONTAINER_TARGET = { A:8, B:6, C:4, D:"MGç¸è«" }
+
 export const INITIAL_PRODUCTS = [
-  {id:"A1",rack:"A1",cat:"葉物",name:"レタスL",origin:"茨城",price:198,cost:100,displayQty:4,makeQty:60},
-  {id:"A2",rack:"A2",cat:"葉物",name:"フリルレタス",origin:"福島",price:128,cost:60,displayQty:4,makeQty:40},
-  {id:"A3",rack:"A3",cat:"葉物",name:"水菜",origin:"福島",price:158,cost:70,displayQty:4,makeQty:60},
-  {id:"A4",rack:"A4",cat:"葉物",name:"小松菜",origin:"福島",price:158,cost:85,displayQty:4,makeQty:60},
-  {id:"A5",rack:"A5",cat:"葉物",name:"ほうれん草",origin:"福島",price:198,cost:80,displayQty:4,makeQty:100},
-  {id:"A6",rack:"A6",cat:"葉物",name:"青梗菜",origin:"福島",price:138,cost:60,displayQty:4,makeQty:40},
-  {id:"A7",rack:"A7",cat:"葉物",name:"ブロッコリー",origin:"福島",price:198,cost:120,displayQty:4,makeQty:40},
-  {id:"A8",rack:"A8",cat:"葉物",name:"長ねぎ 2P",origin:"福島",price:198,cost:80,displayQty:4,makeQty:150},
-  {id:"A9",rack:"A9",cat:"葉物",name:"にら",origin:"福島",price:178,cost:90,displayQty:4,makeQty:60},
-  {id:"B1",rack:"B1",cat:"果菜",name:"ミニトマト 120g",origin:"福島",price:258,cost:160,displayQty:6,makeQty:90},
-  {id:"B2",rack:"B2",cat:"果菜",name:"トマトスタンド 400g",origin:"福島",price:398,cost:240,displayQty:6,makeQty:200},
-  {id:"B3",rack:"B3",cat:"果菜",name:"きゅうり 2P",origin:"千葉",price:198,cost:120,displayQty:4,makeQty:60},
-  {id:"B4",rack:"B4",cat:"果菜",name:"ピーマン M3P",origin:"茨城",price:159,cost:120,displayQty:4,makeQty:100},
-  {id:"B5",rack:"B5",cat:"果菜",name:"なす袋 5P",origin:"蚏城",price:298,cost:220,displayQty:4,makeQty:100},
-  {id:"C1",rack:"C1",cat:"薬味",name:"生姜",origin:"高知",price:158,cost:110,displayQty:4,makeQty:60},
-  {id:"C2",rack:"C2",cat:"薬味",name:"春菊",origin:"福島",price:158,cost:70,displayQty:4,makeQty:40},
-  {id:"C3",rack:"C3",cat:"薬味",name:"ニンニク",origin:"青森",price:298,cost:220,displayQty:4,makeQty:60},
-  {id:"C4",rack:"C4",cat:"薬味",name:"ゆず",origin:"千葉",price:398,cost:220,displayQty:4,makeQty:0},
-  {id:"D1",rack:"D1",cat:"カット",name:"キャベツ 1/2カット",origin:"千葉",price:98,cost:40,displayQty:4,makeQty:60},
-  {id:"D2",rack:"D2",cat:"カット",name:"白菜 1/4カット",origin:"茨城",price:138,cost:41,displayQty:4,makeQty:60},
-  {id:"E1",rack:"E1",cat:"きのこ",name:"しいたけ A",origin:"福島",price:178,cost:125,displayQty:4,makeQty:60},
-  {id:"E2",rack:"E2",cat:"きのこ",name:"株取りなめこ",origin:"福島",price:128,cost:75,displayQty:4,makeQty:40},
-  {id:"E3",rack:"E3",cat:"きのこ",name:"えのき",origin:"群馬",price:158,cost:60,displayQty:4,makeQty:60},
-  {id:"E4",rack:"E4",cat:"きのこ",name:"ぶなしめじ",origin:"茨城",price:158,cost:60,displayQty:4,makeQty:60},
-  {id:"E5",rack:"E5",cat:"きのこ",name:"まいたけ",origin:"群馬",price:149,cost:70,displayQty:4,makeQty:40},
-  {id:"F1",rack:"F1",cat:"根菜",name:"大根一本",origin:"茨城",price:158,cost:87,displayQty:4,makeQty:60},
-  {id:"F2",rack:"F2",cat:"根菜",name:"ごぼう",origin:"青森",price:158,cost:100,displayQty:4,makeQty:40},
-  {id:"F3",rack:"F3",cat:"根菜",name:"長いもパック",origin:"茨城",price:258,cost:100,displayQty:4,makeQty:60},
-  {id:"G1",rack:"G1",cat:"土もの",name:"人参 A品 L2P",origin:"茨城",price:228,cost:150,displayQty:4,makeQty:0},
-  {id:"G2",rack:"G2",cat:"土もの",name:"たまねぎ M3P",origin:"愛知",price:298,cost:180,displayQty:4,makeQty:100},
-  {id:"G3",rack:"G3",cat:"土もの",name:"じゃがいも L3P",origin:"福島",price:298,cost:150,displayQty:4,makeQty:200},
-  {id:"H1",rack:"H1",cat:"果物",name:"キウイフルーツ",origin:"福島",price:498,cost:360,displayQty:4,makeQty:60},
-  {id:"H2",rack:"H2",cat:"果物",name:"デリシャスミカン 6P",origin:"―",price:798,cost:540,displayQty:4,makeQty:60},
+  {id:"A1",rack:"A1",cat:"èç©",name:"ã¬ã¿ã¹L",origin:"è¨å",price:198,cost:100,displayQty:4,makeQty:60},
+  {id:"A2",rack:"A2",cat:"èç©",name:"ããªã«ã¬ã¿ã¹",origin:"ç¦å³¶",price:128,cost:60,displayQty:4,makeQty:40},
+  {id:"A3",rack:"A3",cat:"èç©",name:"æ°´è",origin:"ç¦å³¶",price:158,cost:70,displayQty:4,makeQty:60},
+  {id:"A4",rack:"A4",cat:"èç©",name:"å°æ¾è",origin:"ç¦å³¶",price:158,cost:85,displayQty:4,makeQty:60},
+  {id:"A5",rack:"A5",cat:"èç©",name:"ã»ãããè",origin:"ç¦å³¶",price:198,cost:80,displayQty:4,makeQty:100},
+  {id:"A6",rack:"A6",cat:"èç©",name:"éæ¢è",origin:"ç¦å³¶",price:138,cost:60,displayQty:4,makeQty:40},
+  {id:"A7",rack:"A7",cat:"èç©",name:"ãã­ãã³ãªã¼",origin:"ç¦å³¶",price:198,cost:120,displayQty:4,makeQty:40},
+  {id:"A8",rack:"A8",cat:"èç©",name:"é·ã­ã 2P",origin:"ç¦å³¶",price:198,cost:80,displayQty:4,makeQty:150},
+  {id:"A9",rack:"A9",cat:"èç©",name:"ã«ã",origin:"ç¦å³¶",price:178,cost:90,displayQty:4,makeQty:60},
+  {id:"B1",rack:"B1",cat:"æè",name:"ããããã 120g",origin:"ç¦å³¶",price:258,cost:160,displayQty:6,makeQty:90},
+  {id:"B2",rack:"B2",cat:"æè",name:"ãããã¹ã¿ã³ã 400g",origin:"ç¦å³¶",price:398,cost:240,displayQty:6,makeQty:200},
+  {id:"B3",rack:"B3",cat:"æè",name:"ãããã 2P",origin:"åè",price:198,cost:120,displayQty:4,makeQty:60},
+  {id:"B4",rack:"B4",cat:"æè",name:"ãã¼ãã³ M3P",origin:"è¨å",price:159,cost:120,displayQty:4,makeQty:100},
+  {id:"B5",rack:"B5",cat:"æè",name:"ãªãè¢ 5P",origin:"è¨å",price:298,cost:220,displayQty:4,makeQty:100},
+  {id:"C1",rack:"C1",cat:"è¬å³",name:"çå§",origin:"é«ç¥",price:158,cost:110,displayQty:4,makeQty:60},
+  {id:"C2",rack:"C2",cat:"è¬å³",name:"æ¥è",origin:"ç¦å³¶",price:158,cost:70,displayQty:4,makeQty:40},
+  {id:"C3",rack:"C3",cat:"è¬å³",name:"ãã³ãã¯",origin:"éæ£®",price:298,cost:220,displayQty:4,makeQty:60},
+  {id:"C4",rack:"C4",cat:"è¬å³",name:"ãã",origin:"åè",price:398,cost:220,displayQty:4,makeQty:0},
+  {id:"D1",rack:"D1",cat:"ã«ãã",name:"ã­ã£ãã 1/2ã«ãã",origin:"åè",price:98,cost:40,displayQty:4,makeQty:60},
+  {id:"D2",rack:"D2",cat:"ã«ãã",name:"ç½è 1/4ã«ãã",origin:"è¨å",price:138,cost:41,displayQty:4,makeQty:60},
+  {id:"E1",rack:"E1",cat:"ãã®ã",name:"ãããã A",origin:"ç¦å³¶",price:178,cost:125,displayQty:4,makeQty:60},
+  {id:"E2",rack:"E2",cat:"ãã®ã",name:"æ ªåããªãã",origin:"ç¦å³¶",price:128,cost:75,displayQty:4,makeQty:40},
+  {id:"E3",rack:"E3",cat:"ãã®ã",name:"ãã®ã",origin:"ç¾¤é¦¬",price:158,cost:60,displayQty:4,makeQty:60},
+  {id:"E4",rack:"E4",cat:"ãã®ã",name:"ã¶ãªããã",origin:"è¨å",price:158,cost:60,displayQty:4,makeQty:60},
+  {id:"E5",rack:"E5",cat:"ãã®ã",name:"ã¾ããã",origin:"ç¾¤é¦¬",price:149,cost:70,displayQty:4,makeQty:40},
+  {id:"F1",rack:"F1",cat:"æ ¹è",name:"å¤§æ ¹ä¸æ¬",origin:"è¨å",price:158,cost:87,displayQty:4,makeQty:60},
+  {id:"F2",rack:"F2",cat:"æ ¹è",name:"ãã¼ã",origin:"éæ£®",price:158,cost:100,displayQty:4,makeQty:40},
+  {id:"F3",rack:"F3",cat:"æ ¹è",name:"é·ããããã¯",origin:"è¨å",price:258,cost:100,displayQty:4,makeQty:60},
+  {id:"G1",rack:"G1",cat:"åãã®",name:"äººå Aå L2P",origin:"è¨å",price:228,cost:150,displayQty:4,makeQty:0},
+  {id:"G2",rack:"G2",cat:"åãã®",name:"ãã¾ã­ã M3P",origin:"æç¥",price:298,cost:180,displayQty:4,makeQty:100},
+  {id:"G3",rack:"G3",cat:"åãã®",name:"ããããã L3P",origin:"ç¦å³¶",price:298,cost:150,displayQty:4,makeQty:200},
+  {id:"H1",rack:"H1",cat:"æç©",name:"ã­ã¦ã¤ãã«ã¼ã",origin:"ç¦å³¶",price:498,cost:360,displayQty:4,makeQty:60},
+  {id:"H2",rack:"H2",cat:"æç©",name:"ããªã·ã£ã¹ãã«ã³ 6P",origin:"â",price:798,cost:540,displayQty:4,makeQty:60},
 ]
 
 export const INITIAL_EVENT = [
-  {id:"EV1",num:1,name:"土長芋",price:199,cost:100,qty:200,note:""},
-  {id:"EV2",num:2,name:"2L人参4P",price:299,cost:200,qty:200,note:""},
-  {id:"EV3",num:3,name:"ほうれん草",price:128,cost:70,qty:200,note:""},
-  {id:"EV4",num:4,name:"土ネギ",price:199,cost:130,qty:200,note:""},
-  {id:"EV5",num:5,name:"小松菜",price:88,cost:40,qty:300,note:""},
-  {id:"EV6",num:6,name:"サンフジ",price:399,cost:210,qty:200,note:""},
-  {id:"EV7",num:7,name:"きゅうり3P",price:128,cost:90,qty:200,note:"社長"},
-  {id:"EV8",num:8,name:"ぶなしめじ",price:88,cost:60,qty:240,note:""},
-  {id:"EV9",num:9,name:"しいたけB",price:128,cost:70,qty:150,note:""},
-  {id:"EV10",num:10,name:"伊予柑大袋 2L5P",price:399,cost:240,qty:200,note:""},
-  {id:"EV11",num:11,name:"玉ねぎ大袋S",price:199,cost:100,qty:300,note:""},
-  {id:"EV12",num:12,name:"八朔L5P",price:399,cost:210,qty:200,note:""},
-  {id:"EV13",num:13,name:"デコポン2P",price:198,cost:124,qty:200,note:""},
-  {id:"EV14",num:14,name:"いちごAM",price:333,cost:270,qty:200,note:""},
-  {id:"EV15",num:15,name:"えのき",price:88,cost:60,qty:200,note:""},
-  {id:"EV16",num:16,name:"水菜",price:68,cost:40,qty:120,note:""},
-  {id:"EV17",num:17,name:"サニーレタス",price:88,cost:40,qty:150,note:""},
-  {id:"EV18",num:18,name:"房取りトマト",price:199,cost:140,qty:200,note:""},
-  {id:"EV19",num:19,name:"アイコ200g",price:198,cost:130,qty:100,note:""},
+  {id:"EV1",num:1,name:"åé·è",price:199,cost:100,qty:200,note:""},
+  {id:"EV2",num:2,name:"2Läººå4P",price:299,cost:200,qty:200,note:""},
+  {id:"EV3",num:3,name:"ã»ãããè",price:128,cost:70,qty:200,note:""},
+  {id:"EV4",num:4,name:"åãã®",price:199,cost:130,qty:200,note:""},
+  {id:"EV5",num:5,name:"å°æ¾è",price:88,cost:40,qty:300,note:""},
+  {id:"EV6",num:6,name:"ãµã³ãã¸",price:399,cost:210,qty:200,note:""},
+  {id:"EV7",num:7,name:"ãããã3P",price:128,cost:90,qty:200,note:"ç¤¾é·"},
+  {id:"EV8",num:8,name:"ã¶ãªããã",price:88,cost:60,qty:240,note:""},
+  {id:"EV9",num:9,name:"ããããB",price:128,cost:70,qty:150,note:""},
+  {id:"EV10",num:10,name:"ä¼äºæå¤§è¢ 2L5P",price:399,cost:240,qty:200,note:""},
+  {id:"EV11",num:11,name:"çã­ãå¤§è¢S",price:199,cost:100,qty:300,note:""},
+  {id:"EV12",num:12,name:"å«æL5P",price:399,cost:210,qty:200,note:""},
+  {id:"EV13",num:13,name:"ãã³ãã³2P",price:198,cost:124,qty:200,note:""},
+  {id:"EV14",num:14,name:"ãã¡ãAM",price:333,cost:270,qty:200,note:""},
+  {id:"EV15",num:15,name:"ãã®ã",price:88,cost:60,qty:200,note:""},
+  {id:"EV16",num:16,name:"æ°´è",price:68,cost:40,qty:120,note:""},
+  {id:"EV17",num:17,name:"ãµãã¼ã¬ã¿ã¹",price:88,cost:40,qty:150,note:""},
+  {id:"EV18",num:18,name:"æ¿åãããã",price:199,cost:140,qty:200,note:""},
+  {id:"EV19",num:19,name:"ã¢ã¤ã³200g",price:198,cost:130,qty:100,note:""},
 ]
 
 export const DEFAULT_STORES = [
-  {id:2,area:"須賀川",name:"須賀川大袋店",rank:"A",logistics:"アサヒ",deliveryDays:"月・水・金",time:"9:00",shelfSize:"2m40cm",eventSetup:"90×90(1台)",outsideSale:"有",advisors:"助川",note:""},
-  {id:3,area:"須賀川",name:"須賀川南店",rank:"C",logistics:"アサヒ",deliveryDays:"月・水・金",time:"9:15",shelfSize:"1m20cm",eventSetup:"なし",outsideSale:"無",advisors:"助川",note:""},
-  {id:4,area:"須賀川",name:"須賀川西店",rank:"B",logistics:"アサヒ",deliveryDays:"月・水・金",time:"9:45",shelfSize:"1m20cm",eventSetup:"90×90(1台)",outsideSale:"有",advisors:"助川",note:""},
-  {id:6,area:"郡山",name:"郡山守山店",rank:"A",logistics:"アサヒ",deliveryDays:"月・水・金",time:"13:00",shelfSize:"1m20cm",eventSetup:"150cm(1台)",outsideSale:"有",advisors:"助川",note:""},
-  {id:10,area:"白河",name:"白河結城店",rank:"B",logistics:"アサヒ",deliveryDays:"月・水・金",time:"13:40",shelfSize:"1m20cm",eventSetup:"180cm(2台)",outsideSale:"有",advisors:"神谷・長久保",note:""},
-  {id:11,area:"白河",name:"白河西店",rank:"B",logistics:"アサヒ",deliveryDays:"月・水・金",time:"14:25",shelfSize:"2m40cm",eventSetup:"180cm(1台)",outsideSale:"有",advisors:"神谷・長久保",note:""},
-  {id:12,area:"白河",name:"白河表郷店",rank:"A",logistics:"アサヒ",deliveryDays:"月・水・金",time:"13:10",shelfSize:"1m20cm",eventSetup:"180cm(2台)",outsideSale:"有",advisors:"神谷・長久保",note:""},
-  {id:13,area:"白河",name:"泉崎店",rank:"A",logistics:"アサヒ",deliveryDays:"月・水・金",time:"15:25",shelfSize:"2m40cm",eventSetup:"150cm(2台)",outsideSale:"有",advisors:"神谷・長久保",note:""},
-  {id:21,area:"白河",name:"白河東店",rank:"C",logistics:"アサヒ",deliveryDays:"月・水・金",time:"12:35",shelfSize:"1m20cm",eventSetup:"150cm(2台)",outsideSale:"有",advisors:"長久保",note:""},
-  {id:22,area:"白河",name:"白河白坂店",rank:"A",logistics:"アサヒ",deliveryDays:"月・水・金",time:"12:35",shelfSize:"1m20cm",eventSetup:"150cm(1台)",outsideSale:"有",advisors:"長久保",note:""},
-  {id:30,area:"会津",name:"喜多方塩川店",rank:"A",logistics:"アサヒ",deliveryDays:"月・水・金",time:"―",shelfSize:"1m20cm",eventSetup:"コンテナ",outsideSale:"無",advisors:"―",note:"冻蔵なし"},
-  {id:32,area:"会津",name:"喜多方上江店",rank:"A",logistics:"アサヒ",deliveryDays:"月・水・金",time:"―",shelfSize:"1m20cm",eventSetup:"コンテナ",outsideSale:"無",advisors:"―",note:"冻蔵なし"},
-  {id:34,area:"会津",name:"喜多方南店",rank:"A",logistics:"アサヒ",deliveryDays:"月・水・金",time:"―",shelfSize:"2m40cm",eventSetup:"コンテナ",outsideSale:"無",advisors:"―",note:"冻蔵なし"},
-  {id:38,area:"会津",name:"南会津バイパス店",rank:"A",logistics:"アサヒ",deliveryDays:"月・水・金",time:"―",shelfSize:"1m20cm",eventSetup:"コンテナ",outsideSale:"無",advisors:"―",note:"冻蔵なし"},
-  {id:39,area:"いわき",name:"下神谷店",rank:"B",logistics:"アサヒ",deliveryDays:"月・水・金",time:"―",shelfSize:"1m20cm",eventSetup:"180cm(1台)",outsideSale:"無",advisors:"―",note:""},
-  {id:40,area:"いわき",name:"神谷店",rank:"B",logistics:"アサヒ",deliveryDays:"月・水・金",time:"―",shelfSize:"1m20cm",eventSetup:"コンテナ",outsideSale:"無",advisors:"―",note:""},
-  {id:43,area:"いわき",name:"小名浜店",rank:"B",logistics:"アサヒ",deliveryDays:"月・水・金",time:"―",shelfSize:"1m20cm",eventSetup:"コンテナ",outsideSale:"無",advisors:"―",note:""},
-  {id:44,area:"いわき",name:"小名浜神白店",rank:"B",logistics:"アサヒ",deliveryDays:"月・水・金",time:"―",shelfSize:"1m20cm",eventSetup:"コンテナ",outsideSale:"無",advisors:"―",note:""},
-  {id:7,area:"矢吹",name:"矢吹北店",rank:"D",logistics:"アサヒ",deliveryDays:"火・木",time:"16:00",shelfSize:"2m40cm",eventSetup:"なし",outsideSale:"有",advisors:"神谷・長久保",note:""},
-  {id:14,area:"白河",name:"白河浅川店",rank:"B",logistics:"アサヒ",deliveryDays:"火・木",time:"9:35",shelfSize:"1m20cm",eventSetup:"150cm(1台)",outsideSale:"有",advisors:"神谷・長久保",note:""},
-  {id:15,area:"白河",name:"白河西郷店",rank:"C",logistics:"アサヒ",deliveryDays:"火・木",time:"15:00",shelfSize:"1m20cm",eventSetup:"150cm(1台)",outsideSale:"有",advisors:"神谷・長久保",note:""},
-  {id:16,area:"白河",name:"矢祭店",rank:"B",logistics:"アサヒ",deliveryDays:"火・木",time:"8:30",shelfSize:"1m20cm",eventSetup:"150cm(2台)",outsideSale:"有",advisors:"長久保",note:""},
-  {id:17,area:"白河",name:"塙店",rank:"B",logistics:"アサヒ",deliveryDays:"火・木",time:"8:55",shelfSize:"なし",eventSetup:"150cm(2台)",outsideSale:"有",advisors:"長久保",note:""},
-  {id:18,area:"白河",name:"棚倉店",rank:"C",logistics:"アサヒ",deliveryDays:"火・木",time:"9:15",shelfSize:"1m20cm",eventSetup:"150cm(2台)",outsideSale:"有",advisors:"長久保",note:""},
-  {id:19,area:"白河",name:"石川店",rank:"C",logistics:"アサヒ",deliveryDays:"火・木",time:"10:00",shelfSize:"1m20cm",eventSetup:"150cm(2台)",outsideSale:"有",advisors:"長久保",note:""},
-  {id:20,area:"白河",name:"古殿店",rank:"B",logistics:"アサヒ",deliveryDays:"火・木",time:"10:35",shelfSize:"1m20cm",eventSetup:"180cm(1台)",outsideSale:"有",advisors:"長久保",note:""},
-  {id:28,area:"会津",name:"会津坂下店",rank:"B",logistics:"アサヒ",deliveryDays:"火・木",time:"―",shelfSize:"2m40cm",eventSetup:"コンテナ",outsideSale:"無",advisors:"―",note:"冻蔵なし"},
-  {id:31,area:"会津",name:"会津坂下インター店",rank:"B",logistics:"アサヒ",deliveryDays:"火・木",time:"―",shelfSize:"2m40cm",eventSetup:"コンテナ",outsideSale:"無",advisors:"―",note:"冻蔵なし"},
-  {id:33,area:"会津",name:"猪苗代店",rank:"C",logistics:"アサヒ",deliveryDays:"火・木",time:"―",shelfSize:"1m20cm",eventSetup:"コンテナ",outsideSale:"無",advisors:"―",note:"冻蔵なし"},
-  {id:36,area:"会津",name:"会津销田店",rank:"B",logistics:"アサヒ",deliveryDays:"火・木",time:"―",shelfSize:"なし",eventSetup:"コンテナ",outsideSale:"無",advisors:"―",note:"冻蔵なし"},
-  {id:37,area:"会津",name:"会津高田店",rank:"B",logistics:"アサヒ",deliveryDays:"火・木",time:"―",shelfSize:"1m20cm",eventSetup:"コンテナ",outsideSale:"無",advisors:"―",note:"冻蔵なし"},
-  {id:41,area:"いわき",name:"久ノ浜店",rank:"B",logistics:"アサヒ",deliveryDays:"火・木",time:"―",shelfSize:"1m20cm",eventSetup:"コンテナ",outsideSale:"無",advisors:"―",note:""},
-  {id:42,area:"いわき",name:"平紪店",rank:"B",logistics:"アサヒ",deliveryDays:"火・木",time:"―",shelfSize:"1m20cm",eventSetup:"コンテナ",outsideSale:"無",advisors:"―",note:""},
-  {id:23,area:"いわき",name:"小野店",rank:"A",logistics:"自社",deliveryDays:"月〜土",time:"自社(午前)",shelfSize:"1m20cm",eventSetup:"150cm(1台)",outsideSale:"有",advisors:"助川",note:""},
-  {id:24,area:"いわき",name:"平田店",rank:"B",logistics:"自社",deliveryDays:"月〜土",time:"自社(午前)",shelfSize:"1m20cm",eventSetup:"なし",outsideSale:"有",advisors:"助川",note:""},
-  {id:25,area:"郡山",name:"堤店",rank:"B",logistics:"自社",deliveryDays:"月〜土",time:"自社(午前)",shelfSize:"なし",eventSetup:"なし",outsideSale:"有",advisors:"助川",note:""},
-  {id:26,area:"郡山",name:"久保田店",rank:"B",logistics:"自社",deliveryDays:"月〜土",time:"自社(午前)",shelfSize:"なし",eventSetup:"コンテナ",outsideSale:"有",advisors:"助川",note:""},
-  {id:27,area:"郡山",name:"郡山富田店",rank:"A",logistics:"自社",deliveryDays:"月〜土",time:"自社(午前)",shelfSize:"2m40cm",eventSetup:"なし",outsideSale:"有",advisors:"助川",note:""},
+  // ââ é è³å·ï¼æã»æ°´ã»å
+  {id:2,area:"é è³å·",name:"é è³å·å¤§è¢åº",rank:"A",logistics:"ã¢ãµã",deliveryDays:"æã»æ°´ã»å",time:"9:00",shelfSize:"2m40cm",eventSetup:"90Ã90(1å°)",outsideSale:"æ",advisors:"å©å·",note:""},
+  {id:3,area:"é è³å·",name:"é è³å·ååº",rank:"C",logistics:"ã¢ãµã",deliveryDays:"æã»æ°´ã»å",time:"9:15",shelfSize:"1m20cm",eventSetup:"ãªã",outsideSale:"ç¡",advisors:"å©å·",note:""},
+  {id:4,area:"é è³å·",name:"é è³å·è¥¿åº",rank:"B",logistics:"ã¢ãµã",deliveryDays:"æã»æ°´ã»å",time:"9:45",shelfSize:"1m20cm",eventSetup:"90Ã90(1å°)",outsideSale:"æ",advisors:"å©å·",note:""},
+  // ââ é¡å±±ï¼æã»æ°´ã»å
+  {id:6,area:"é¡å±±",name:"é¡å±±å®å±±åº",rank:"A",logistics:"ã¢ãµã",deliveryDays:"æã»æ°´ã»å",time:"13:00",shelfSize:"1m20cm",eventSetup:"150cm(1å°)",outsideSale:"æ",advisors:"å©å·",note:""},
+  {id:25,area:"é¡å±±",name:"å ¤åº",rank:"B",logistics:"èªç¤¾",deliveryDays:"æã»æ°´ã»å",time:"èªç¤¾(åå)",shelfSize:"ãªã",eventSetup:"ãªã",outsideSale:"æ",advisors:"å©å·",note:""},
+  {id:26,area:"é¡å±±",name:"ä¹ä¿ç°åº",rank:"B",logistics:"èªç¤¾",deliveryDays:"æã»æ°´ã»å",time:"èªç¤¾(åå)",shelfSize:"ãªã",eventSetup:"ã³ã³ãã",outsideSale:"æ",advisors:"å©å·",note:""},
+  {id:27,area:"é¡å±±",name:"é¡å±±å¯ç°åº",rank:"A",logistics:"èªç¤¾",deliveryDays:"æã»æ°´ã»å",time:"èªç¤¾(åå)",shelfSize:"2m40cm",eventSetup:"ãªã",outsideSale:"æ",advisors:"å©å·",note:""},
+  // ââ ç¢å¹ï¼æã»æ°´ã»å
+  {id:7,area:"ç¢å¹",name:"ç¢å¹ååº",rank:"D",logistics:"ã¢ãµã",deliveryDays:"æã»æ°´ã»å",time:"16:00",shelfSize:"2m40cm",eventSetup:"ãªã",outsideSale:"æ",advisors:"ç¥è°·ã»é·ä¹ä¿",note:""},
+  // ââ ç½æ²³ï¼æã»æ°´ã»å
+  {id:10,area:"ç½æ²³",name:"ç½æ²³çµååº",rank:"B",logistics:"ã¢ãµã",deliveryDays:"æã»æ°´ã»å",time:"13:40",shelfSize:"1m20cm",eventSetup:"180cm(2å°)",outsideSale:"æ",advisors:"ç¥è°·ã»é·ä¹ä¿",note:""},
+  {id:11,area:"ç½æ²³",name:"ç½æ²³è¥¿åº",rank:"B",logistics:"ã¢ãµã",deliveryDays:"æã»æ°´ã»å",time:"14:25",shelfSize:"2m40cm",eventSetup:"180cm(1å°)",outsideSale:"æ",advisors:"ç¥è°·ã»é·ä¹ä¿",note:""},
+  {id:12,area:"ç½æ²³",name:"ç½æ²³è¡¨é·åº",rank:"A",logistics:"ã¢ãµã",deliveryDays:"æã»æ°´ã»å",time:"13:10",shelfSize:"1m20cm",eventSetup:"180cm(2å°)",outsideSale:"æ",advisors:"ç¥è°·ã»é·ä¹ä¿",note:""},
+  {id:13,area:"ç½æ²³",name:"æ³å´åº",rank:"A",logistics:"ã¢ãµã",deliveryDays:"æã»æ°´ã»å",time:"15:25",shelfSize:"2m40cm",eventSetup:"150cm(2å°)",outsideSale:"æ",advisors:"ç¥è°·ã»é·ä¹ä¿",note:""},
+  {id:14,area:"ç½æ²³",name:"ç½æ²³æµå·åº",rank:"B",logistics:"ã¢ãµã",deliveryDays:"æã»æ°´ã»å",time:"9:35",shelfSize:"1m20cm",eventSetup:"150cm(1å°)",outsideSale:"æ",advisors:"ç¥è°·ã»é·ä¹ä¿",note:""},
+  {id:15,area:"ç½æ²³",name:"ç½æ²³è¥¿é·åº",rank:"C",logistics:"ã¢ãµã",deliveryDays:"æã»æ°´ã»å",time:"15:00",shelfSize:"1m20cm",eventSetup:"150cm(1å°)",outsideSale:"æ",advisors:"ç¥è°·ã»é·ä¹ä¿",note:""},
+  {id:16,area:"ç½æ²³",name:"ç¢ç¥­åº",rank:"B",logistics:"ã¢ãµã",deliveryDays:"æã»æ°´ã»å",time:"8:30",shelfSize:"1m20cm",eventSetup:"150cm(2å°)",outsideSale:"æ",advisors:"é·ä¹ä¿",note:""},
+  {id:17,area:"ç½æ²³",name:"å¡åº",rank:"B",logistics:"ã¢ãµã",deliveryDays:"æã»æ°´ã»å",time:"8:55",shelfSize:"ãªã",eventSetup:"150cm(2å°)",outsideSale:"æ",advisors:"é·ä¹ä¿",note:""},
+  {id:18,area:"ç½æ²³",name:"æ£ååº",rank:"C",logistics:"ã¢ãµã",deliveryDays:"æã»æ°´ã»å",time:"9:15",shelfSize:"1m20cm",eventSetup:"150cm(2å°)",outsideSale:"æ",advisors:"é·ä¹ä¿",note:""},
+  {id:19,area:"ç½æ²³",name:"ç³å·åº",rank:"C",logistics:"ã¢ãµã",deliveryDays:"æã»æ°´ã»å",time:"10:00",shelfSize:"1m20cm",eventSetup:"150cm(2å°)",outsideSale:"æ",advisors:"é·ä¹ä¿",note:""},
+  {id:20,area:"ç½æ²³",name:"å¤æ®¿åº",rank:"B",logistics:"ã¢ãµã",deliveryDays:"æã»æ°´ã»å",time:"10:35",shelfSize:"1m20cm",eventSetup:"180cm(1å°)",outsideSale:"æ",advisors:"é·ä¹ä¿",note:""},
+  {id:21,area:"ç½æ²³",name:"ç½æ²³æ±åº",rank:"C",logistics:"ã¢ãµã",deliveryDays:"æã»æ°´ã»å",time:"12:35",shelfSize:"1m20cm",eventSetup:"150cm(2å°)",outsideSale:"æ",advisors:"é·ä¹ä¿",note:""},
+  {id:22,area:"ç½æ²³",name:"ç½æ²³ç½ååº",rank:"A",logistics:"ã¢ãµã",deliveryDays:"æã»æ°´ã»å",time:"12:35",shelfSize:"1m20cm",eventSetup:"150cm(1å°)",outsideSale:"æ",advisors:"é·ä¹ä¿",note:""},
+  // ââ ä¼æ´¥ï¼ç«ã»éã»æ¥
+  {id:28,area:"ä¼æ´¥",name:"ä¼æ´¥åä¸åº",rank:"B",logistics:"ã¢ãµã",deliveryDays:"ç«ã»éã»æ¥",time:"â",shelfSize:"2m40cm",eventSetup:"ã³ã³ãã",outsideSale:"ç¡",advisors:"â",note:"å·èµãªã"},
+  {id:30,area:"ä¼æ´¥",name:"åå¤æ¹å¡©å·åº",rank:"A",logistics:"ã¢ãµã",deliveryDays:"ç«ã»éã»æ¥",time:"â",shelfSize:"1m20cm",eventSetup:"ã³ã³ãã",outsideSale:"ç¡",advisors:"â",note:"å·èµãªã"},
+  {id:31,area:"ä¼æ´¥",name:"ä¼æ´¥åä¸ã¤ã³ã¿ã¼åº",rank:"B",logistics:"ã¢ãµã",deliveryDays:"ç«ã»éã»æ¥",time:"â",shelfSize:"2m40cm",eventSetup:"ã³ã³ãã",outsideSale:"ç¡",advisors:"â",note:"å·èµãªã"},
+  {id:32,area:"ä¼æ´¥",name:"åå¤æ¹ä¸æ±åº",rank:"A",logistics:"ã¢ãµã",deliveryDays:"ç«ã»éã»æ¥",time:"â",shelfSize:"1m20cm",eventSetup:"ã³ã³ãã",outsideSale:"ç¡",advisors:"â",note:"å·èµãªã"},
+  {id:33,area:"ä¼æ´¥",name:"çªèä»£åº",rank:"C",logistics:"ã¢ãµã",deliveryDays:"ç«ã»éã»æ¥",time:"â",shelfSize:"1m20cm",eventSetup:"ã³ã³ãã",outsideSale:"ç¡",advisors:"â",note:"å·èµãªã"},
+  {id:34,area:"ä¼æ´¥",name:"åå¤æ¹ååº",rank:"A",logistics:"ã¢ãµã",deliveryDays:"ç«ã»éã»æ¥",time:"â",shelfSize:"2m40cm",eventSetup:"ã³ã³ãã",outsideSale:"ç¡",advisors:"â",note:"å·èµãªã"},
+  {id:36,area:"ä¼æ´¥",name:"ä¼æ´¥éç°åº",rank:"B",logistics:"ã¢ãµã",deliveryDays:"ç«ã»éã»æ¥",time:"â",shelfSize:"ãªã",eventSetup:"ã³ã³ãã",outsideSale:"ç¡",advisors:"â",note:"å·èµãªã"},
+  {id:37,area:"ä¼æ´¥",name:"ä¼æ´¥é«ç°åº",rank:"B",logistics:"ã¢ãµã",deliveryDays:"ç«ã»éã»æ¥",time:"â",shelfSize:"1m20cm",eventSetup:"ã³ã³ãã",outsideSale:"ç¡",advisors:"â",note:"å·èµãªã"},
+  {id:38,area:"ä¼æ´¥",name:"åä¼æ´¥ãã¤ãã¹åº",rank:"A",logistics:"ã¢ãµã",deliveryDays:"ç«ã»éã»æ¥",time:"â",shelfSize:"1m20cm",eventSetup:"ã³ã³ãã",outsideSale:"ç¡",advisors:"â",note:"å·èµãªã"},
+  // ââ ãããï¼æã»æ¨ã»å
+  {id:23,area:"ããã",name:"å°éåº",rank:"A",logistics:"èªç¤¾",deliveryDays:"æã»æ¨ã»å",time:"èªç¤¾(åå)",shelfSize:"1m20cm",eventSetup:"150cm(1å°)",outsideSale:"æ",advisors:"å©å·",note:""},
+  {id:24,area:"ããã",name:"å¹³ç°åº",rank:"B",logistics:"èªç¤¾",deliveryDays:"æã»æ¨ã»å",time:"èªç¤¾(åå)",shelfSize:"1m20cm",eventSetup:"ãªã",outsideSale:"æ",advisors:"å©å·",note:""},
+  {id:39,area:"ããã",name:"ä¸ç¥è°·åº",rank:"B",logistics:"ã¢ãµã",deliveryDays:"æã»æ¨ã»å",time:"â",shelfSize:"1m20cm",eventSetup:"180cm(1å°)",outsideSale:"ç¡",advisors:"â",note:""},
+  {id:40,area:"ããã",name:"ç¥è°·åº",rank:"B",logistics:"ã¢ãµã",deliveryDays:"æã»æ¨ã»å",time:"â",shelfSize:"1m20cm",eventSetup:"ã³ã³ãã",outsideSale:"ç¡",advisors:"â",note:""},
+  {id:41,area:"ããã",name:"ä¹ãæµåº",rank:"B",logistics:"ã¢ãµã",deliveryDays:"æã»æ¨ã»å",time:"â",shelfSize:"1m20cm",eventSetup:"ã³ã³ãã",outsideSale:"ç¡",advisors:"â",note:""},
+  {id:42,area:"ããã",name:"å¹³çªªåº",rank:"B",logistics:"ã¢ãµã",deliveryDays:"æã»æ¨ã»å",time:"â",shelfSize:"1m20cm",eventSetup:"ã³ã³ãã",outsideSale:"ç¡",advisors:"â",note:""},
+  {id:43,area:"ããã",name:"å°åæµåº",rank:"B",logistics:"ã¢ãµã",deliveryDays:"æã»æ¨ã»å",time:"â",shelfSize:"1m20cm",eventSetup:"ã³ã³ãã",outsideSale:"ç¡",advisors:"â",note:""},
+  {id:44,area:"ããã",name:"å°åæµç¥ç½åº",rank:"B",logistics:"ã¢ãµã",deliveryDays:"æã»æ¨ã»å",time:"â",shelfSize:"1m20cm",eventSetup:"ã³ã³ãã",outsideSale:"ç¡",advisors:"â",note:""},
 ]
 
 export const INITIAL_TICKER = [
-  {icon:"🥬",msg:"3/11〜3/17 棚割更新済み — レギュラー品確認"},
-  {icon:"📦",msg:"コンテナは619番で統一"},
-  {icon:"🔔",msg:"会津エリア：冷蔵なし → 土物・果牫d��心で"},
-  {icon:"💡",msg:"コンテナはパンパンに（利益追求）"},
+  {icon:"ð¥¬",msg:"3/11ã3/17 æ£å²æ´æ°æ¸ã¿ â ã¬ã®ã¥ã©ã¼åç¢ºèª"},
+  {icon:"ð¦",msg:"ã³ã³ããã¯619çªã§çµ±ä¸"},
+  {icon:"ð",msg:"ä¼æ´¥ã¨ãªã¢ï¼å·èµãªã â åç©ã»æç©ä¸­å¿ã§"},
+  {icon:"ð¡",msg:"ãã«ãã®æ¥ã»åæã¯å¼·æ°ã®éãè¾¼ã¿ã§æ¬¡åé²æ­¢"},
 ]
 
 export const INITIAL_WEEKLY = [
-  {date:"2026-03-11",name:"助川",note:"泉崎店の苺が好調。補充依頼あり。",storeMsg:"白河表郷より追加依頾期",isNew:true,mgRead:false},
-  {date:"2026-03-11",name:"神谷",note:"会津全体的に催事数量は適正。来週天候注意。",storeMsg:"",isNew:true,mgRead:false},
-  {date:"2026-03-10",name:"長久保",note:"矢殔・塞は売上順調。",storeMsg:"矢殔より週末向けに増量希望",isNew:false,mgRead:true},
+  {date:"2026-03-11",name:"å©å·",note:"æ³å´åºã®èºãå¥½èª¿ãè£åä¾é ¼ããã",storeMsg:"ç½æ²³è¡¨é·ããè¿½å ä¾¿å¸æ",isNew:true,mgRead:false},
+  {date:"2026-03-11",name:"ç¥è°·",note:"ä¼æ´¥å¨ä½çã«å¬äºæ°éã¯é©æ­£ãæ¥é±å¤©åæ³¨æã",storeMsg:"",isNew:true,mgRead:false},
+  {date:"2026-03-10",name:"é·ä¹ä¿",note:"ç¢ç¥­ã»å¡ã¯å£²ä¸é èª¿ã",storeMsg:"ç¢ç¥­ããé±æ«åãã«å¢éå¸æ",isNew:false,mgRead:true},
 ]
 
-export const AREAS = ["全エリア","郡山","須賀川","矢吹","白河","会津","いわき"]
-export const CATS  = ["葉物","果菜","薬味","カット","きのこ","根菜","土もの","果物"]
-export const CAT   = {"葉物":{bg:"#dcfce7",tx:"#166534",bd:"#86efac"},"果菜":{bg:"#fee2e2",tx:"#991b1b",bd:"#fca5a5"},"薬味":{bg:"#fef9c3",tx:"#854d0e",bd:"#fde047"},"カット":{bg:"#dbeafe",tx:"#1e40af",bd:"#93c5fd"},"きのこ":{bg:"#ede9fe",tx:"#5b21b6",bd:"#c4b5fd"},"根菜":{bg:"#ffedd5",tx:"#9a3412",bd:"#fdba74"},"土もの":{bg:"#f5f0e8",tx:"#78350f",bd:"#d6b97a"},"果物":{bg:"#fce7f3",tx:"#9d174d",bd:"#f9a8d4"}}
+export const AREAS = ["å¨ã¨ãªã¢","é¡å±±","é è³å·","ç¢å¹","ç½æ²³","ä¼æ´¥","ããã"]
+export const CATS  = ["èç©","æè","è¬å³","ã«ãã","ãã®ã","æ ¹è","åãã®","æç©"]
+export const CAT   = {èç©:{bg:"#dcfce7",tx:"#166534",bd:"#86efac"},æè:{bg:"#fee2e2",tx:"#991b1b",bd:"#fca5a5"},è¬å³:{bg:"#fef9c3",tx:"#854d0e",bd:"#fde047"},ã«ãã:{bg:"#dbeafe",tx:"#1e40af",bd:"#93c5fd"},ãã®ã:{bg:"#ede9fe",tx:"#5b21b6",bd:"#c4b5fd"},æ ¹è:{bg:"#ffedd5",tx:"#9a3412",bd:"#fdba74"},åãã®:{bg:"#f5f0e8",tx:"#78350f",bd:"#d6b97a"},æç©:{bg:"#fce7f3",tx:"#9d174d",bd:"#f9a8d4"}}
 export const RANK  = {A:{bg:"#fef9c3",tx:"#92400e"},B:{bg:"#dbeafe",tx:"#1e40af"},C:{bg:"#dcfce7",tx:"#166534"},D:{bg:"#fee2e2",tx:"#991b1b"}}
-
