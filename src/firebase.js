@@ -40,4 +40,3 @@ export const initIfEmpty = async (path, defaultVal) => {
     await dbSet(path, defaultVal)
   }
 }
-
