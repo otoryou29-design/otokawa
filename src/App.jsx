@@ -1,18 +1,12 @@
 import { useState, useEffect, useRef } from "react"
 import * as XLSX from "xlsx"
-import { db, dbSet, dbListen, dbPush, dbRemove, dbGet, initIfEmpty } from "./firebase"
+import { db, dbSet, dbListen, dbPush, dbGet, initIfEmpty } from "./firebase"
 import {
   DISCOUNT_DAYS, INITIAL_PRODUCTS, INITIAL_EVENT, DEFAULT_STORES,
   INITIAL_TICKER, INITIAL_WEEKLY, EVENT_CONTAINER_TARGET,
   AREAS, CATS, CAT, RANK
 } from "./data"
 
-
-const isTsuruhaDay = () => { const d = new Date().getDate(); return d===1||d===10||d===20 }
-const gpN = (p,c) => p>0 ? Math.round((p-c)/p*100) : 0
-const fmtJP = (n) => { if(n>=100000000) return `${(n/100000000).toFixed(1)}億円`; if(n>=10000) return `${Math.round(n/10000)}万円`; return `${n.toLocaleString()}円` }
-const safeNum = (s) => Number(String(s||0).replace(/,/g,""))||0
-const fmt = v => `¥${Number(v||0).toLocaleString()}`
 
 function parseExcelFile(file) {
   return new Promise((resolve,reject) => {
@@ -151,8 +145,8 @@ export default function App() {
   const [actualMakeQty,setActualMakeQty] = useState({}) // レギュラー実作成数
   const [eventStatus,setEventStatus]     = useState({}) // 催事品目ごとの状態 {actualMade, status:'pending'|'done'|'shortage'}
   const [packageFinalized,setPackageFinalized] = useState(null) // 催事最終確認
-  const [regularFinalized,setRegularFinalized] = useState(null)  // レギュラー最終確認
   const [regularStatus,setRegularStatus] = useState({}) // レギュラー品目ごとの状態
+  const [regularFinalized,setRegularFinalized] = useState(null) // レギュラー最終確認
   const [regularFinalizeConfirm,setRegularFinalizeConfirm] = useState(false)
   const [weeklyReports,setWeeklyReports] = useState([])
   const [tickerItems,setTickerItems]     = useState(INITIAL_TICKER)
@@ -178,12 +172,12 @@ export default function App() {
       await initIfEmpty("displayDates", {})
       await initIfEmpty("actualMakeQty", {})
       await initIfEmpty("eventStatus", {})
-      await initIfEmpty("regularStatus", {})
       await initIfEmpty("tickerItems", INITIAL_TICKER)
       await initIfEmpty("boardMessages", {board_all:"",board_cmg:"",board_smg:""})
-      await initIfEmpty("pickingDone", {})
-      await initIfEmpty("discountDayOverrides", {})
+      await initIfEmpty("boardDate", new Date().toISOString().slice(0,10))
+      await initIfEmpty("regularStatus", {})
       await initIfEmpty("regularFinalized", null)
+      await initIfEmpty("pickingDone", {})
       const snap = await dbGet("weeklyReports")
       if(!snap.exists()){ for(const r of INITIAL_WEEKLY){ await dbPush("weeklyReports", r) } }
       setDbReady(true)
@@ -194,24 +188,24 @@ export default function App() {
   useEffect(()=>{
     if(!dbReady) return
     const unsubs = [
-      dbListen("products",            v => v && setProducts(Array.isArray(v)?v:Object.values(v))),
-      dbListen("eventProducts",       v => v && setEventProducts(Array.isArray(v)?v:Object.values(v))),
-      dbListen("stores",              v => v && setStores(Array.isArray(v)?v:Object.values(v))),
-      dbListen("shipDate",            v => v && setShipDateState(v)),
-      dbListen("shipReport",          v => setShipReport(v||{})),
-      dbListen("centerStock",         v => setCenterStock(v||{})),
-      dbListen("displayDates",        v => setDisplayDates(v||{})),
-      dbListen("actualMakeQty",       v => setActualMakeQty(v||{})),
-      dbListen("eventStatus",         v => setEventStatus(v||{})),
-      dbListen("regularStatus",       v => setRegularStatus(v||{})),
-      dbListen("packageFinalized",    v => setPackageFinalized(v||null)),
-      dbListen("tickerItems",         v => v && setTickerItems(Array.isArray(v)?v:Object.values(v))),
-      dbListen("reportData",          v => setReportData(v||null)),
-      dbListen("boardMessages",       v => v && setBoardMessages(v)),
-      dbListen("pickingDone",         v => setPickingDone(v||{})),
-      dbListen("regularFinalized",    v => setRegularFinalized(v||null)),
-      dbListen("discountDayOverrides",v => setDiscountDayOverrides(v||{})),
-      dbListen("weeklyReports",       v => {
+      dbListen("products",         v => v && setProducts(Array.isArray(v)?v:Object.values(v))),
+      dbListen("eventProducts",    v => v && setEventProducts(Array.isArray(v)?v:Object.values(v))),
+      dbListen("stores",           v => v && setStores(Array.isArray(v)?v:Object.values(v))),
+      dbListen("shipDate",         v => v && setShipDateState(v)),
+      dbListen("shipReport",       v => setShipReport(v||{})),
+      dbListen("centerStock",      v => setCenterStock(v||{})),
+      dbListen("displayDates",     v => setDisplayDates(v||{})),
+      dbListen("actualMakeQty",    v => setActualMakeQty(v||{})),
+      dbListen("eventStatus",      v => setEventStatus(v||{})),
+      dbListen("packageFinalized", v => setPackageFinalized(v||null)),
+      dbListen("tickerItems",      v => v && setTickerItems(Array.isArray(v)?v:Object.values(v))),
+      dbListen("reportData",       v => setReportData(v||null)),
+      dbListen("boardMessages",    v => v && setBoardMessages(v)),
+      dbListen("boardDate",        v => v && setBoardDate(v)),
+      dbListen("regularStatus",    v => setRegularStatus(v||{})),
+      dbListen("regularFinalized", v => setRegularFinalized(v||null)),
+      dbListen("pickingDone",      v => setPickingDone(v||{})),
+      dbListen("weeklyReports",    v => {
         if(!v) return
         const arr=Object.entries(v).map(([k,r])=>({...r,_key:k}))
         arr.sort((a,b)=>new Date(b.date)-new Date(a.date))
@@ -272,7 +266,7 @@ export default function App() {
       origin: newEventItem.origin.trim(),
       note: newEventItem.note.trim()
     }
-    setEventProducts(prev=>[...prev, newProd])
+    setEventProducts(prev=>{const next=[...prev,newProd];dbSet("eventProducts",next);return next})
     setNewEventItem({name:"",price:"",cost:"",qty:"",origin:"",note:""})
     setShowAddEvent(false)
   }
@@ -469,7 +463,7 @@ export default function App() {
               </div>
               <div style={{display:"flex",alignItems:"center",gap:8,background:"#fff",border:"2px solid #dde5de",borderRadius:11,padding:"8px 14px"}}>
                 <span style={{fontSize:13,fontWeight:700,color:"#6b7280"}}>📅 日付</span>
-                <input type="date" value={boardDate} onChange={e=>setBoardDate(e.target.value)} style={{border:"none",background:"transparent",width:"auto",padding:"2px 4px",fontSize:14,fontWeight:700}}/>
+                <input type="date" value={boardDate} onChange={e=>{setBoardDate(e.target.value);dbSet("boardDate",e.target.value)}} style={{border:"none",background:"transparent",width:"auto",padding:"2px 4px",fontSize:14,fontWeight:700}}/>
               </div>
             </div>
             {[
@@ -481,7 +475,7 @@ export default function App() {
                 <div style={{fontSize:15,fontWeight:900,color,marginBottom:12}}>{label}</div>
                 <textarea
                   value={boardMessages[key]||""} rows={4}
-                  onChange={e=>{const v=e.target.value;setBoardMessages(prev=>{const next={...prev,[key]:v};debouncedWrite("boardMessages",next,800);return next});setBoardUpdated(prev=>({...prev,[key]:new Date().toLocaleTimeString("ja-JP",{hour:"2-digit",minute:"2-digit"})}))}}
+                  onChange={e=>{const v=e.target.value;setBoardMessages(prev=>{const next={...prev,[key]:v};debouncedWrite("boardMessages",next);return next});setBoardUpdated(prev=>({...prev,[key]:new Date().toLocaleTimeString("ja-JP",{hour:"2-digit",minute:"2-digit"})}))}}
                   placeholder="ここに記入..."
                   style={{resize:"vertical",fontSize:15,lineHeight:1.8,background:bg,border:`2px solid ${bd}`,borderRadius:10,padding:"10px 13px",color:"#1c1c1e"}}
                 />
@@ -605,7 +599,7 @@ export default function App() {
                         {elapsed!==null&&discDays&&<span style={{marginLeft:5}}>{elapsed}/{discDays}日</span>}
                       </span>
                       <div style={{display:"flex",alignItems:"center",gap:4}}>
-                        <input type="number" min="1" max="30" placeholder={defaultDays||"日数"} value={customDays!==undefined?customDays:""} onChange={e=>{const v=e.target.value===""?null:e.target.value;setDiscountDayOverrides(prev=>({...prev,[p.id]:v}));debouncedWrite(`discountDayOverrides/${p.id}`,v,600)}} style={{width:52,padding:"3px 5px",fontSize:13,fontWeight:700,textAlign:"center",border:"1.5px solid #fde047",background:"#fff",borderRadius:6}}/>
+                        <input type="number" min="1" max="30" placeholder={defaultDays||"日数"} value={customDays!==undefined?customDays:""} onChange={e=>setDiscountDayOverrides(prev=>({...prev,[p.id]:e.target.value===""?undefined:e.target.value}))} style={{width:52,padding:"3px 5px",fontSize:13,fontWeight:700,textAlign:"center",border:"1.5px solid #fde047",background:"#fff",borderRadius:6}}/>
                         <span style={{fontSize:11,color:"#854d0e"}}>日</span>
                       </div>
                     </div>
@@ -990,7 +984,7 @@ export default function App() {
                       </div>
                     </div>
                     {/* 作成済みチェック */}
-                    <button onClick={()=>setPickingDone(prev=>{const next={...prev,[s.id]:!done};dbSet(`pickingDone/${s.id}`,!done);return next})} style={{width:"100%",padding:"10px",background:done?"#dcfce7":"#f4f6f4",border:`2px solid ${done?"#16a34a":"#dde5de"}`,borderRadius:9,fontSize:14,fontWeight:800,color:done?"#166534":"#6b7280",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:7}}>
+                    <button onClick={()=>setPickingDone(prev=>{const next={...prev,[s.id]:!done};dbSet("pickingDone",next);return next})} style={{width:"100%",padding:"10px",background:done?"#dcfce7":"#f4f6f4",border:`2px solid ${done?"#16a34a":"#dde5de"}`,borderRadius:9,fontSize:14,fontWeight:800,color:done?"#166534":"#6b7280",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:7}}>
                       {done?"✅ 作成済み（タップで戻す）":"☐ 作成済みにする"}
                     </button>
                     <div style={{marginTop:7,fontSize:11,background:"#ede9fe",color:"#5b21b6",padding:"3px 8px",borderRadius:4,display:"inline-block",fontWeight:700}}>📦 619番</div>
