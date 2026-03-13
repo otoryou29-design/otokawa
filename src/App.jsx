@@ -852,8 +852,8 @@ export default function App() {
           const filteredStores=[...stores]
             .filter(s=>!activeAreas||activeAreas.includes(s.area))
             .sort((a,b)=>{
-              const da=pickingDone[a.id]?1:0, db=pickingDone[b.id]?1:0
-              return da-db
+              const da=pickingDone[a.id]?1:0, db2=pickingDone[b.id]?1:0
+              return da-db2
             })
 
           const totalCases=filteredStores.reduce((sum,s)=>sum+Number((shipReport[s.id]||{}).caseCount||0),0)
